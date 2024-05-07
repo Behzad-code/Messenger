@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.behzad.messenger.databse.Message
 
 @Database(entities = [Message::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

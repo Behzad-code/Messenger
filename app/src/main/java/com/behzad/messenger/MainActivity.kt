@@ -3,6 +3,7 @@ package com.behzad.messenger
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -83,9 +84,8 @@ fun SmsUI(viewModel: MessageViewModel) {
     ) {
         Text(
 
-            text = "SMS Manager in Android",
-
-            color = Color.Green,
+            text = "SMS Manager",
+            color = Color.Black,
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold
         )
@@ -125,8 +125,16 @@ fun SmsUI(viewModel: MessageViewModel) {
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(onClick = {
-            val newMessage = Message(title = "New Message", phoneNumber = phoneNumber.value, messageContent = message.value)
+            val newMessage = Message(
+                title = "New Message",
+                phoneNumber = phoneNumber.value,
+                messageContent = message.value
+            )
             viewModel.insertMessage(newMessage)
+            Log.e(
+                "MainActivity",
+                "New message sent - Phone Number: ${phoneNumber.value}, Message: ${message.value}"
+            )
 
         }) {
             Text(
